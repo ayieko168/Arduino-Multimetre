@@ -1,0 +1,1655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/main_template.dwt.php" codeOutsideHTMLIsLocked="false" --><head><script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/cbgapi.loaded_2" async=""></script><script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/sdk.js" async="" crossorigin="anonymous"></script><script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/cbgapi.loaded_1" async=""></script><script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/cbgapi.loaded_0" async=""></script><script charset="utf-8" async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/affasi_js.js"></script><script charset="utf-8" async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/affasi_js.js"></script><script charset="utf-8" async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/affasi_js.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>How to make a capacitance meter using arduino</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+
+<style>
+.photo_bg
+{
+	position: absolute;
+	top: 145px;
+	left: 50%;
+	
+	width: 99.5%;
+	height: auto;
+	z-index: -100;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+</style>
+
+
+
+
+<script type="text/javascript" async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/ga.js"></script><script id="facebook-jssdk" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/sdk_002.js"></script><script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/analytics.js"></script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62541190-1', 'auto');
+  ga('send', 'pageview');
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+
+<link rel="shortcut icon" href="http://www.electronoobs.com/images/icon.ico">
+
+<link href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/main.css" rel="stylesheet" type="text/css">
+
+
+
+
+<link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/butterscroll.css" type="text/css">
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/jquery-1.js"></script>
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/jq-butterscroll-0.js"></script>
+
+
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/platform.js" gapi_processed="true"></script>
+
+
+
+
+
+<style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head><body onload="MM_preloadImages('images/ENG2.png','images/Arduino/tut_10/petit_menu/res_2.png','images/Arduino/tut_10/petit_menu/cap_2.png','images/Arduino/tut_10/petit_menu/cur_2.png','images/Arduino/tut_10/petit_menu/ind_2.png')"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/xd_arbiter.htm" frameborder="0"></iframe></div><div></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=249946393271";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
+ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
+</style>
+<![endif]-->
+
+
+
+<script>window._epn = {campaign:5338106513};</script>
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/epn-smart-tools.js"></script>
+
+
+
+<script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7895687552151505",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+
+
+<div class="youtubee">
+<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 180px; height: 48px;" id="___ytsubscribe_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 180px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 48px;" tabindex="0" vspace="0" id="I0_1560114876631" name="I0_1560114876631" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/subscribe_embed.htm" data-gapiattached="true" width="100%" frameborder="0"></iframe></div>
+</div>
+
+
+<div class="banderas">
+<div class="clearfloat"></div>
+
+	<div class="banderas2">
+    <a href="http://www.electronoobs.com/index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('eng','','images/ENG2.png',1)"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/ENG1.png" alt="English" id="eng" width="40" height="25"></a>
+     </div>
+
+	<div class="banderas2">
+    <a href="http://www.electronoobs.com/eng_index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ESP','','images/ESP2.png',1)"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/ESP1.png" alt="Español" id="ESP" width="40" height="25"></a>
+    </div>
+    
+<div class="busqueda">
+    
+    <div class="search_1">
+	<div class="search_2">
+	<form method="GET" action="//www.google.com/search">
+        <div class="search_3">
+            <i class="search_4">
+            </i>
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="oe" value="UTF-8">
+        <input type="text" name="q" size="25" maxlength="255" placeholder="Search for any project">
+        <input type="submit" name="btnG" value="search">
+        <input type="hidden" name="domains" value="http://www.electronoobs.com">
+        <input type="hidden" name="sitesearch" value="http://www.electronoobs.com">
+        </div>
+	</form> 
+	</div>
+	</div>
+</div>    
+    
+
+
+</div>
+
+<div class="photo_bg">
+<img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/BG_GIF.gif" width="100%" height="100%">
+</div>
+
+
+
+
+<div class="container">
+
+
+
+  <div class="header">
+  <!-- InstanceBeginEditable name="cabecera" -->
+   
+ 
+
+
+
+
+
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {
+  margin: 0;
+  background: ;
+  text-align: center;
+}
+
+#menu-wrapper {
+	position: relative;
+	display: block;
+	z-index: 2;
+	height: 50px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	background-color: #FFF;
+}
+
+.menu {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	width: 1100px;
+	text-align: left;
+	list-style-type: none;
+	
+}
+
+.menu li {border: 1px solid #333;
+
+  display: inline-block;
+  padding-top: 13px;
+  padding-left:20px;
+  width:10%;
+  padding-right:20px;
+  margin-left:20px;
+  height:35px;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.menu a,
+.menu a:visited {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#submenu-wrapper {
+	position: absolute;
+	right: 0;
+	left: 0;
+	display: block;
+	z-index: 1;
+	width: 1100px;
+	height: 134px;
+	margin: -11px auto 0;
+	padding: 10px 10px;
+	background: rgba(33,37,37,0.9);
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+	overflow: hidden;
+	text-align: center;
+}
+
+.submenu {
+  display: block;
+  margin: 1em 0 1.5em;
+  padding: 0;
+  list-style-type: none;
+}
+
+.submenu li {
+  display: inline-block;
+  width: 210px;
+  vertical-align: top;
+  margin-bottom: .5em;
+  text-align: center;
+}
+
+.submenu li img {
+  display: block;
+  margin: 0 auto 1em;
+  width: 200px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.submenu li a,
+.submenu li a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+    </style>
+
+    
+
+    
+    
+<div id="menu-wrapper">
+      <ul class="menu">
+   
+    <li> <a href="http://www.electronoobs.com/index.php">Home</a></li>
+    <li> <a href="http://www.electronoobs.com/tutorials.php">Tutorials</a></li>
+    <li> <a href="http://www.electronoobs.com/eng_preguntas.php">Q&amp;A forum</a> </li>
+    <li> <a href="#">Electronics</a> </li>
+    <li> <a href="#">3D printing</a> </li>
+    <li> <a href="#">About</a> </li>
+    
+  	</ul>
+    </div>
+<div id="submenu-wrapper" style="display: block; margin-top: -12em;" class="">
+    
+         
+    <ul class="submenu" style="margin-top: -33em;">
+    	<li> <a href="http://www.electronoobs.com/eng_sobre_nosotros.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/mi_GIF.gif" width="250px" height="87px">About me </a> </li>
+    	<li> <a href="http://www.electronoobs.com/eng_historia.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/historia.png">History </a> </li>
+    	<li> <a href="http://www.electronoobs.com/eng_aestudiar.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/aestudiar.png">Let's learn </a> </li>
+        <li> <a href="http://www.electronoobs.com/eng_contacto.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/contacto.png">Contact us </a> </li>     
+    </ul>
+    
+    
+    
+    
+     <ul class="submenu">
+    	<li> <a href="http://www.electronoobs.com/eng_tutoriales_arduino.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/tut_arduino.png">Arduino tutorials</a> </li>
+    	<li> <a href="http://www.electronoobs.com/eng_tutoriales_circuitos.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/tut_circuitos.png">Circuits tutorials </a> </li>
+    	<li> <a href="http://www.electronoobs.com/eng_tutoriales_robotica.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/tut_robotica.png">Robotics tutorials</a> </li>
+      </ul> 
+    
+    <ul class="submenu">
+    <li> <a href="http://www.electronoobs.com/eng_preguntas.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/preguntas.png">Q&amp;A</a> </li>
+    <li> <a href="http://www.electronoobs.com/eng_blog.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/sabiasque.png">Blog </a> </li>
+    </ul>
+    
+     
+      <ul class="submenu">
+        <li> <a href="http://www.electronoobs.com/eng_arduino.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/arduino.png"> Arduino </a> </li>
+   		<li> <a href="http://www.electronoobs.com/eng_circuitos.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/circuitos.png"> Circuits</a> </li>
+    	<li> <a href="http://www.electronoobs.com/eng_robotica.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/robotica.png"> Robotics </a> </li>
+    	<li> <a href="http://www.electronoobs.com/eng_modulos.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/modulos.png"> Modules </a> </li>
+         <li> <a href="http://www.electronoobs.com/eng_gadgets.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/gadgets.png">Gadgets </a> </li>
+      	 </ul>
+         
+         
+      <ul class="submenu">
+      <li> <a href="http://www.electronoobs.com/eng_impresoras.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/impresoras.png"> Printers </a> </li>
+    <li> <a href="http://www.electronoobs.com/eng_materiales.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/materiales.png"> Materials </a> </li>    
+    <li> <a href="http://www.electronoobs.com/eng_objetos.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/objetos.png"> 3D objects </a> </li>
+    <li> <a href="http://www.electronoobs.com/eng_edit3D.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/3dedit.png"> 3D edit </a> </li>
+    </ul>
+    
+    
+      <ul class="submenu">
+      <li> <a href="http://www.electronoobs.com/eng_donate.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/donate.png"> Donate </a> </li>
+    <li> <a href="http://www.electronoobs.com/eng_reviews.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/reviews.png">Reviews </a> </li>   
+    <li> <a href="http://www.electronoobs.com/eng_advertising.php"> <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/advertising.png" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0">Advertising</a> </li>
+    
+    </ul>
+    
+    
+    
+    
+    
+    </div>
+    
+
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/jquery-1_002.js"></script> 
+<script>
+$(document).ready(function() {
+  $('#submenu-wrapper').hide();
+	/* Assign Variables*/
+	menu				= $('.menu li');
+	submenuWrapper	= $('#submenu-wrapper'); 
+	submenu			= submenuWrapper.children('ul');
+	firstSubmenu 	= submenu.eq(0);
+	
+	/* menu on hover */
+	menu.hover(
+		function() {
+			$('#submenu-wrapper').show();
+			moveTo = $(this).index() * 11;
+			showsubmenu(submenuWrapper);
+			firstSubmenu.stop().animate({'marginTop' : '-'+moveTo+'em' });
+		},
+		
+		function() { hidesubmenu(submenuWrapper); });
+	
+	/* sub menu hover */
+	submenuWrapper.hover(
+		function() { showsubmenu($(this)); },
+		function() { hidesubmenu($(this));
+	});
+	
+	/*Focus effect on selected child list item */
+	submenu
+		.children('li')
+		.hover(	function() { $(this).siblings().stop().animate({'opacity':'0.5'}); }, 
+					function() { $(this).siblings().stop().animate({'opacity':'1'}); });
+	
+	/* Focus effect on selected parent list item */
+	submenu
+		.hover(	function() { menu.eq($(this).index()).addClass('selected')  },
+					function() { menu.eq($(this).index()).removeClass('selected') });
+	
+	/* Function to show sub menu */
+	function showsubmenu(item) {
+		if(!item.hasClass('show'))
+			item.addClass('show').stop().animate({'marginTop' : '0'});
+	}
+	
+	/* Function to hide sub menu */
+	function hidesubmenu(item) {
+		item.removeClass('show').stop().animate({'marginTop' : '-12em'});
+	}
+	
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+
+
+  
+  </div>
+  
+  
+  
+  
+  
+  <div class="sidebar1"><!-- InstanceBeginEditable name="barra_lateral" -->
+<style>
+.barra_social_media_1{
+	height: 100px;
+	float: left;
+	width: 100%;
+	}
+
+.barra_social_media_2{
+	margin:2%;
+	height: 40px;
+	float: left;
+	width: 20%;
+	background-color:#FFF;
+}
+.barra_social_media_3{
+	margin-right:2%;
+	margin-bottom:2%;
+	margin-top:2%;
+	margin-left:4%;
+	height: 40px;
+	float: left;
+	width: 20%;
+	background-color:#FFF;
+}
+
+.gearbest_side_1
+{
+  float:left;
+  width:100%;
+  height:600px;
+  
+  margin-bottom:10px;
+  margin-top:10px;
+}
+
+.gearbest_horizontal_1
+{
+  float:left;
+  width: 99%;
+  height:90px;
+  margin-bottom:10px;
+  margin-top:10px;
+
+}
+
+.ad_line
+{
+  float:left;
+  width: 100%;
+  height:20px;
+  border-bottom: 1px dotted #FC9;
+  
+ 
+}
+</style>    
+    
+    
+    
+    
+    
+    
+    
+    
+      <div class="barra_social_media_1">
+      
+      	<div class="barra_social_media_3">
+        <a href="http://www.youtube.com/c/ELECTRONOOBS" target="_blank" onmouseover="MM_swapImage('yt_link','','images/YouTube_2.png',1)" onmouseout="MM_swapImgRestore()"><img id="yt_link" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/YouTube_1.png" alt="yt_link" width="100%"></a> 
+        </div>
+        
+        <div class="barra_social_media_2">
+        <a href="http://www.instagram.com/ELECTRONOOBS" target="_blank" onmouseover="MM_swapImage('insta_link','','images/Insta_2.png',1)" onmouseout="MM_swapImgRestore()"><img id="insta_link" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/Insta_1.png" alt="insta_link" width="100%"></a> 
+        </div>
+        
+        <div class="barra_social_media_2">
+        <a href="https://www.facebook.com/Electronoobs" target="_blank" onmouseover="MM_swapImage('fb_link','','images/fb_2.png',1)" onmouseout="MM_swapImgRestore()"><img id="fb_link" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/fb_1.png" alt="fb_link" width="100%"></a>
+        </div>
+        
+        <div class="barra_social_media_2">
+        <a href="https://twitter.com/ELECTRONOOBS" target="_blank" onmouseover="MM_swapImage('twitter_link','','images/twitter_2.png',1)" onmouseout="MM_swapImgRestore()"><img id="twitter_link" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/twitter_1.png" alt="twitter_link" width="100%"></a>
+        </div>
+        
+        
+        
+        
+        <div class="barra_social_media_3">
+        </div>
+        <div class="barra_social_media_2">
+        </div>
+        <div class="barra_social_media_2">
+        </div>
+        <div class="barra_social_media_2">
+        </div>
+      
+      
+      
+    </div>
+      
+      
+      
+      <div class="ad_line">
+      <orange>ADVERTISERS</orange>
+      </div>
+
+      
+     
+     
+      
+      
+      <div class="clearfloat"></div>       
+      <style>
+.adsense_side_bloc_1
+{
+	width:100%;
+	height:250px;
+	
+	margin-bottom:10px;
+}
+
+.adsense_side_bloc_1_280
+{
+	width:100%;
+	height:280px;
+	
+	margin-bottom:10px;
+}
+
+.adsense_side_bloc_2
+{
+	width:100%;
+	height:600px;
+	
+	margin-bottom:10px;
+}
+
+.adsense_side_bloc_3
+{
+	width:100%;
+	height:600px;
+	
+	margin-bottom:10px;
+}
+
+
+.adsense_side_bloc_total
+{
+	
+	float:center;
+	
+}
+
+
+
+</style>
+
+
+<div class="adsense_side_bloc_total">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="adsense_side_bloc_1">
+<a href="http://bit.ly/2OZXUOa" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/Solo_banner.gif" alt="PCBWAY PCB Manufacturing" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>
+</div>
+
+
+<br>
+
+
+
+<div class="adsense_side_bloc_1">
+<a href="http://bit.ly/2C13Rpp" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/PCBway_2019_1.gif" alt="PCBWAY Christas PCB Manufacturing" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>
+</div>
+
+
+<br>
+
+
+<div class="adsense_side_bloc_1_280">
+<a href="http://bit.ly/2BdX0tU" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/welpcb_ad_2.gif" alt="Advanced PCB Manufacturing" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>
+</div>
+
+
+
+<div class="adsense_side_bloc_1_280">
+<a href="http://bit.ly/2LeoDq1" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/welpcb_ad_3.gif" alt="Advanced PCB Manufacturing" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>
+</div>
+
+
+
+
+
+
+
+<!--<div class="adsense_side_bloc_1"> 
+<a href="http://bit.ly/2J2BfBX" target="_blank"><img src="images/Advertising/mostool.gif" width="100%" height="280" alt="ANENG" /></a>
+ </div>
+
+
+
+<div class="clearfix">
+</div>
+
+
+
+<div class="adsense_side_bloc_1"> 
+<a href="http://bit.ly/2LptbJM" target="_blank"><img src="images/Advertising/HT-02D.gif" width="100%" height="280" alt="cooleme TV" /></a>
+</div>
+-->
+
+
+<div class="clearfix">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="adsense_side_bloc_2">
+<script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/adsbygoogle.js"></script>
+<!-- Personalizado -->
+<ins class="adsbygoogle" style="display:inline-block;width:247px;height:600px" data-ad-client="ca-pub-7895687552151505" data-ad-slot="4203471416"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+
+
+
+<div class="adsense_side_bloc_2">
+<script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/adsbygoogle.js"></script>
+<!-- Personalizado -->
+<ins class="adsbygoogle" style="display:inline-block;width:247px;height:600px" data-ad-client="ca-pub-7895687552151505" data-ad-slot="4203471416"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+
+
+
+<div class="adsense_side_bloc_2">
+<script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/adsbygoogle.js"></script>
+<!-- Personalizado -->
+<ins class="adsbygoogle" style="display:inline-block;width:247px;height:600px" data-ad-client="ca-pub-7895687552151505" data-ad-slot="4203471416"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+
+
+<div class="adsense_side_bloc_2">
+<script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/adsbygoogle.js"></script>
+<!-- Personalizado -->
+<ins class="adsbygoogle" style="display:inline-block;width:247px;height:600px" data-ad-client="ca-pub-7895687552151505" data-ad-slot="4203471416"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+<div class="clearfix"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="adsense_side_bloc_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:100%;height:280px"
+     data-ad-client="ca-pub-7895687552151505"
+     data-ad-slot="6476995209"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+ -->
+
+
+<div class="clearfix"></div>
+<br>
+
+
+
+
+
+
+<!--<div class="adsense_side_bloc_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:100%;height:280px"
+     data-ad-client="ca-pub-7895687552151505"
+     data-ad-slot="6177612308"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+ -->
+
+
+
+
+
+<!--
+<div class="adsense_side_bloc_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:100%;height:280px"
+     data-ad-client="ca-pub-7895687552151505"
+     data-ad-slot="9561968327"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>  -->
+
+
+
+ 
+
+<div class="clearfix"></div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="clearfix"></div>      <div class="clearfloat"></div>
+      
+    <br>
+<br>
+<br>
+<br>
+
+<div class="ad_line">
+<orange>AFFILATE</orange>
+</div>
+
+
+<br>
+     
+<div class="adsense_side_bloc_1">   
+<a href="https://www.banggood.com/search/v-good-ionx/133-0-0-0-0-44-0-price-0-0_p-1.html?utm_campaign=VGood10&amp;utm_content=leah&amp;p=MO102110638587201705&amp;bid=46822&amp;utm_design=102" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/88fb5550341fd3bb49edeb9c7a00674753.jpg" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>    
+</div>
+      
+      
+
+<br>
+ 
+      
+      
+<div class="adsense_side_bloc_1">       
+      <a href="https://www.banggood.com/Racerstar-2205-BR2205S-PRO-Fire-Edition-1722KV-Brushless-Motor-4-6S-For-FPV-Racing-RC-Drone-p-1316925.html?utm_campaign=profire&amp;utm_content=leah&amp;p=MO102110638587201705&amp;bid=46789&amp;utm_design=127" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/ef13ab03d0eb503ae378006c95daa36882.jpg" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>     
+</div>
+
+
+
+<br>
+
+
+<div class="adsense_side_bloc_1">       
+<a href="https://www.banggood.com/collection-6080.html?utm_campaign=a5b71b&amp;utm_content=wayne&amp;p=MO102110638587201705&amp;bid=46474&amp;utm_design=102" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/02815b1a3dc973058fd3b2d33a1e538621.jpg" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>   
+</div>
+
+
+
+
+<br>
+
+
+<div class="adsense_side_bloc_1">       
+<a href="https://www.banggood.com/collection-6004.html?utm_campaign=MOT15&amp;utm_content=wayne&amp;p=MO102110638587201705&amp;bid=46088&amp;utm_design=72" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/ab43c4e87d82d0c6b0f9b02654aaf23c51.jpg" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="clearfloat"></div>  
+
+
+<div class="adsense_side_bloc_1"> 
+<a href="https://www.banggood.com/collection-4931.html?utm_campaign=RCrobot1&amp;utm_content=east&amp;p=MO102110638587201705&amp;bid=43001&amp;utm_design=72" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/f5532381792b4aafeb9e52a68bf568de99.jpg" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" width="0" height="0"></a>
+<br>
+<br>
+<div class="clearfix"></div>
+<br>
+<br>
+</div>
+ 
+ 
+
+
+
+    
+ <!--///////////////////////////////////////////// anuncios gearbest -->   
+
+
+
+<div class="clearfloat"></div>
+
+<br>
+
+
+
+
+<style>
+gearbest_bloque_1
+{
+	float: left;
+	margin-bottom: 20px;
+}
+
+
+</style> 
+
+
+
+<div class="gearbest_bloque_1">   
+<script type="text/javascript">document.write('<a style="display:block;width:100%;height:1px;" class="aff-ad-none"></a>');window.AFF_ONLOAD = window.AFF_ONLOAD || [];window.AFF_ONLOAD.push({lkid:"15887321",affid:"10058208",size:"120*600",type:"2",uid:"152537",language:"en",web_id:"40",version:110});var aff_s = document.createElement("script"),aff_h = document.getElementsByTagName("head")[0];aff_s.charset = "utf-8";aff_s.async = !0;aff_s.src = "https://js.affasi.com/affasi_js.min.js";aff_h.insertBefore(aff_s, aff_h.firstChild);</script><a style="display:block;width:100%;height:1px;" class="aff-ad-none"></a>
+
+<script type="text/javascript">document.write('<a style="display:block;width:100%;height:1px;" class="aff-ad-none"></a>');window.AFF_ONLOAD = window.AFF_ONLOAD || [];window.AFF_ONLOAD.push({lkid:"15887337",affid:"10058208",size:"120*600",type:"3",uid:"152537",language:"en",web_id:"40",version:110});var aff_s = document.createElement("script"),aff_h = document.getElementsByTagName("head")[0];aff_s.charset = "utf-8";aff_s.async = !0;aff_s.src = "https://js.affasi.com/affasi_js.min.js";aff_h.insertBefore(aff_s, aff_h.firstChild);</script><a style="display:block;width:100%;height:1px;" class="aff-ad-none"></a>
+
+</div>
+
+<div class="clearfix"></div>
+<br>
+
+
+<a target="_blank" href="https://www.gearbest.com/3d-printers-3d-printer-kits/pp_796481.html?lkid=39527111" title="Creality3D CR - 10S 3D Printer - EU Plug Upgrade Version Coffee and Black from Gearbest"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/20170916142959_48176.jpg" title="Creality3D CR - 10S 3D Printer - EU Plug Upgrade Version Coffee and Black from Gearbest" alt="Gearbest Creality3D CR - 10S 3D Printer - EU Plug Upgrade Version Coffee and Black" width="100%"><br>Creality3D CR - 10S 3D Printer - EU Plug Upgrade Version Coffee and Black only $$352.94</a>  
+
+<div class="clearfix"></div>
+<br>
+
+<a target="_blank" href="https://www.gearbest.com/3d-printers-3d-printer-kits/pp_1845899.html?lkid=39527206" title="Creality 3D Ender-3 V-slot Prusa I3 DIY 3D Printer Kit 220 x 220 x 250mm Printing Size - EU Plug Black from Gearbest"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/1526855663961392870.jpg" title="Creality 3D Ender-3 V-slot Prusa I3 DIY 3D Printer Kit 220 x 220 x 250mm Printing Size - EU Plug Black from Gearbest" alt="Gearbest Creality 3D Ender-3 V-slot Prusa I3 DIY 3D Printer Kit 220 x 220 x 250mm Printing Size - EU Plug Black" width="100%"><br>Creality 3D Ender-3 V-slot Prusa I3 DIY 3D Printer Kit 220 x 220 x 250mm Printing Size - EU Plug Black only $$153.84</a>
+
+
+<div class="clearfix"></div>
+<br>
+
+
+<a target="_blank" href="https://www.gearbest.com/3d-printers-3d-printer-kits/pp_1841229.html?lkid=39527285" title="Alfawise U20 Large Scale 2.8 inch Touch Screen DIY 3D Printer - EU - U20 EU Plug Black from Gearbest"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/20181228090845_82156.jpg" title="Alfawise U20 Large Scale 2.8 inch Touch Screen DIY 3D Printer - EU - U20 EU Plug Black from Gearbest" alt="Gearbest Alfawise U20 Large Scale 2.8 inch Touch Screen DIY 3D Printer - EU - U20 EU Plug Black" width="100%"><br>Alfawise U20 Large Scale 2.8 inch Touch Screen DIY 3D Printer - EU - U20 EU Plug Black only $$253.39</a>
+
+
+
+
+
+
+
+<br>
+
+
+<!--///////////////////////////////////////////// FINAL anuncios gearbest --> 
+
+<script async="" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-7895687552151505" data-ad-slot="7679475551"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+<div class="gearbest_side_1">
+<script type="text/javascript">document.write('<a style="display:block;width:100%;height:1px;" class="aff-ad-none"></a>');window.AFF_ONLOAD = window.AFF_ONLOAD || [];window.AFF_ONLOAD.push({lkid:"13072517",affid:"10058208",size:"160*600",type:"2",language:"en",web_id:"40",version:110});var aff_s = document.createElement("script"),aff_h = document.getElementsByTagName("head")[0];aff_s.charset = "utf-8";aff_s.async = !0;aff_s.src = "https://js.affasi.com/affasi_js.min.js";aff_h.insertBefore(aff_s, aff_h.firstChild);</script><a style="display:block;width:100%;height:1px;" class="aff-ad-none"></a>   
+</div>
+
+   
+  <!-- InstanceEndEditable -->
+  <!-- end .sidebar1 --></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="content"><!-- InstanceBeginEditable name="contenido" -->
+<h1>Arduino multimeter<orange> BASIC</orange> </h1>
+<br>
+ <div class="multimeter_top_menu">
+  	<div class="multimeter_top_menu2">
+      <a href="http://www.electronoobs.com/eng_arduino_tut10.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Multimeter_1','','images/Arduino/tut_10/petit_menu/res_2.png',1)"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/res_1.png" alt="Resistance meter with arduino" id="Multimeter_1" width="200" height="200"></a> </div>
+    
+    <div class="multimeter_top_menu2">
+    <a href="http://www.electronoobs.com/eng_arduino_tut10_1.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Multimeter_2','','images/Arduino/tut_10/petit_menu/cap_2.png',1)"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/cap_1.png" alt="Capacitance meter with arduino" id="Multimeter_2" width="200" height="200"></a>
+    </div>
+    
+    <div class="multimeter_top_menu2">
+    <a href="http://www.electronoobs.com/eng_arduino_tut10_2.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Multimeter_3','','images/Arduino/tut_10/petit_menu/cur_2.png',1)"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/cur_1.png" alt="Current meter with arduino" id="Multimeter_3" width="200" height="200"></a>
+    </div>
+    
+    <div class="multimeter_top_menu2">
+    <a href="http://www.electronoobs.com/eng_arduino_tut10_3.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Multimeter_4','','images/Arduino/tut_10/petit_menu/ind_2.png',1)"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/ind_1.png" alt="Inductance meter with arduino" id="Multimeter_4" width="200" height="200"></a>
+    </div>
+  </div>
+  
+  <div class="clearfloat"></div>
+  
+  <br><br>
+    <h2><orange>Capacitance meter</orange></h2>
+    <br>
+    
+    <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/a.htm" allowtransparency="true" allowfullscreen="true" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="background: white none repeat scroll 0% 0%; max-width: 100%; width: calc(100% - 2px); border-radius: 3px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;" height="771" frameborder="0"></iframe>
+<script async="" defer="defer" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/embeds.js"></script>
+    
+    
+     <br>
+    <p>
+   Capacitance is a measure of the ability of "something" to store 
+electrical charge. Arduino capacitance meter relies on the same basic 
+property of capacitors- the time constant. <strong>The time constant</strong> of a capacitor is defined as the time it takes for the voltage across the capacitor to reach <strong>63.2%</strong>
+ of its voltage when fully charged. Larger capacitors take longer to 
+charge, and therefore have larger time constants. An Arduino can measure
+ capacitance because the time a capacitor takes to charge is directly 
+related to its capacitance by the next equation:<br>
+<br>
+TC = R x C<br>
+<br>
+TC is the time constant of the capacitor (in seconds).<br>
+<br>
+R is the resistance of the circuit (in Ohms).<br>
+<br>
+C is the capacitance of the capacitor (in Farads). <br>
+    <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/Cap_graf.png" width="100%" height="100%"><br><br>
+    
+    
+    So what we are going to do is charge the capacitor through a 
+resistor using one of the Arduino pins. We have to know the resistence 
+value of that resistor. Using the ADC of the arduino we can measure the 
+voltage that the capacitor reached. We start counting the sime and when 
+the voltage reach 63.2% of the full charge we stop the charge and 
+calculate te capacitance. We can obtain the capacitance value because we
+ know the resistance of the circuit, the measured voltage and the time 
+that it took to reach 63.2% of the full charge. From the equation above 
+we obtain C as: <br>
+   </p>
+   <strong>C = TC / R</strong>
+   <br><br>
+   <p>
+   The Arduino measures the capacitance of the unknown capacitor by 
+recording the time it takes for the capacitor to reach 63.2% of its 
+voltage when fully charged, then dividing that value by the known 
+resistance of the circuit. Now we should be ready to set up the 
+capacitance meters and start measuring some capacitors. <br>
+   </p>
+   <br><br><br><br>
+   <h2>Range 0.1 μF to 3900 μF</h2>
+     
+     <p>
+     The main problem of this setup is the values range that we can 
+measure. It's almos impossible to be able to measure capacitors from 1pF
+ to 100F using one simple circuit and the Arduino. That's why we are 
+going to mount two circuits. One for ranges from 0.1uF to 3.9F and the 
+other one from 10pF to 4.7nF. With this two setups we could measure 
+capacitors from 10pF to almos 4F.
+     <br>
+    <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/Cap_first_range.png" width="100%" height="100%"><br><br>
+    
+    Se we will use pin 13 to charge the capacitor through the 10K ohm 
+resistor. Once the charge starts we also start a time counter in 
+microseaconds. We measure the voltage with the analog input A0. The 
+Arduino ADC has 10 bits so 0 volts would be 0 and 5 volts would be 1024.
+ So 63.2% of 1024 is 648. When the analog read reaches that values we 
+stop charging the capacitor and the time counter as well. We obtain the C
+ value dividing the elapsed time by the used resistor value. We connect 
+the LCD i2c pins as shown in the schematic above and upload the next 
+code. In order to use the LCD with i2c comunication we need to install 
+the lyquid crystal i2c library below. Download it and install it to your
+ Arduini IDE.
+     
+     </p> 
+     <br>
+     You can download the
+     <orange>Lyquid crystal</orange> 
+     library here<br>
+     <a href="http://www.electronoobs.com/images/Arduino/tut_10/LiquidCrystal_I2C.zip" target="_blank"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/eng_descarga.png" width="180" height="40"></a><br><br>
+     To install it we just go to Sketch -&gt; Include library and we open the .zip file that we've just downloaded.
+  <br><br>
+     
+     
+     
+   
+   <link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/arduino-light.css">
+<link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/default.css">
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<div class="tut_cod">
+<div class="tut_cod_top">
+</div>
+
+<div class="arduino_code">
+<pre><code class="arduino hljs">
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">/*Thanks. Remember to visit my Youtube channel
+  If you don't whant to Serial print the valeus just delete the serial. print lines
+  and leave just the LCD print ones.
+  I've used a i2c LCD screen module. 
+*/</span></span></span>
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//LCD config</span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">include</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> </span></span><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string">&lt;Wire.h&gt;</span></span></span></span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">include</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> </span></span><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string">&lt;LiquidCrystal_I2C.h&gt;</span></span></span></span></span></span>
+LiquidCrystal_I2C lcd(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0x3f</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">20</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">4</span></span></span>);  <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//sometimes the adress is not 0x3f. Change to 0x27 if it dosn't work.</span></span></span>
+
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> analogPin      0          </span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> chargePin      13         </span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> dischargePin   8        </span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> resistorValue  10000.0F  </span></span><span class="hljs-comment"><span class="hljs-meta"><span class="hljs-comment"><span class="hljs-meta"><span class="hljs-comment">//Remember, we've used a 10K resistor to charge the capacitor</span></span></span></span></span></span>
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> startTime;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> elapsedTime;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> microFarads;                
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> nanoFarads;
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">void</span></span></span> <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setup</span></span></span>(){
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);     
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>); 
+  lcd.init();
+  lcd.backlight();
+}
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">void</span></span></span> <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">loop</span></span></span>(){
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">HIGH</span></span></span>);  
+  startTime = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>();
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span>(<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(analogPin) &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">648</span></span></span>){       
+  }
+
+  elapsedTime= <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>() - startTime;
+  microFarads = ((<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)elapsedTime / resistorValue) ;
+
+     
+  
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span> (microFarads &gt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>){
+
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"SCALE:  0.1uF-4F"</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);  
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(microFarads);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);        
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"uF"</span></span></span>);   
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">500</span></span></span>);    
+  }
+
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">else</span></span></span>{
+    nanoFarads = microFarads * <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000.0</span></span></span>; 
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"SCALE:  0.1uF-4F"</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);       
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(nanoFarads);  
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);       
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"nF"</span></span></span>);          
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">500</span></span></span>); 
+  }
+
+  
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);            
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(dischargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);            
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(dischargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);     <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//discharging the capacitor     </span></span></span>
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span>(<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(analogPin) &gt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>){         
+  }<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//This while waits till the capaccitor is discharged</span></span></span>
+
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(dischargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);      <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//this sets the pin to high impedance</span></span></span>
+  
+  lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+  lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"DISCHARGING....."</span></span></span>);
+  lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);  
+  
+  
+}
+
+
+ </code></pre>
+
+
+</div>
+<div class="clearfloat">
+</div>
+<div class="tut_cod_bot">
+</div>
+<br>
+<br>
+<br>
+<br>
+   <h2>Range 1 pF to 1 nF</h2>
+     
+     <p>
+     We saw in the example above that we colud measure capacitance just 
+by charging the capacitor. But the example above has a lot of error for 
+small capacitors with range between 1pF and 1nF. So this next example 
+will measure with a lot more precision small capacitors. Finnaly all we 
+need to do is to change between the two ranges using a switch connectet 
+do one of the Arduinos inputs.
+     <br>
+    <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/Cap_seacond_range.png" width="100%" height="100%"><br><br>
+    We'll use A2 to caharge the capacitor and A0 to discharge it. This 
+circuit is quite simple and it's all based on the code. There is no 
+extra resistor just the internal pullup and pulldown resistors. Obserbe 
+and upload the code below. Connect the LCD to the i2c pins and start 
+measureing capacitors. In the next step we will try to mearge the two 
+examples toghether to have a total range from 1pF to 4F. Remember to 
+install the lyquid crystal i2c library below.
+   
+     
+     </p> 
+     <br>
+     You can download the
+     <orange>Lyquid crystal</orange> 
+     library here<br>
+     <a href="http://www.electronoobs.com/images/Arduino/tut_10/LiquidCrystal_I2C.zip"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/eng_descarga.png" alt="arduino ohm meter schematic" width="180" height="40"></a><br>
+     To install it we just go to Sketch -&gt; Include library and we open the .zip file that we've just downloaded.
+  <br><br>
+     
+     
+     
+   
+   <link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/arduino-light.css">
+<link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/default.css">
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<div class="tut_cod">
+<div class="tut_cod_top">
+</div>
+
+<div class="arduino_code">
+<pre><code class="arduino hljs">
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">/*Thanks. Remember to visit my Youtube channel
+  If you don't whant to Serial print the valeus just delete the serial. print lines
+  and leave just the LCD print ones.
+  I've used a i2c LCD screen module. 
+*/</span></span></span>
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//LCD config</span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">include</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> </span></span><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string">&lt;Wire.h&gt;</span></span></span></span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">include</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> </span></span><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string">&lt;LiquidCrystal_I2C.h&gt;</span></span></span></span></span></span>
+LiquidCrystal_I2C lcd(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0x3f</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">20</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">4</span></span></span>);  <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//sometimes the adress is not 0x3f. Change to 0x27 if it dosn't work.</span></span></span>
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> OUT_PIN = A2;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> IN_PIN = A0;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> IN_STRAY_CAP_TO_GND = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">24.48</span></span></span>;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> IN_CAP_TO_GND  = IN_STRAY_CAP_TO_GND;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> R_PULLUP = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">34.8</span></span></span>;  
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> MAX_ADC_VALUE = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1023</span></span></span>;
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">void</span></span></span> <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setup</span></span></span>()
+{
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+  lcd.init();
+  lcd.backlight();
+  }
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">void</span></span></span> <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">loop</span></span></span>()
+{
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">HIGH</span></span></span>);
+    <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> val = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(IN_PIN);
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);
+
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span> (val &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000</span></span></span>)
+    {
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> capacitance = (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)val * IN_CAP_TO_GND / (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)(MAX_ADC_VALUE - 
+
+val);
+
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"Scale:   1pF-1nF"</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(capacitance,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">3</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"pF"</span></span></span>);
+    }
+    
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">else</span></span></span>
+    {
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT_PULLUP</span></span></span>);
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> u1 = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>();
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> t;
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> digVal;
+
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">do</span></span></span>
+      {
+        digVal = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalRead</span></span></span>(OUT_PIN);
+        <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> u2 = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>();
+        t = u2 &gt; u1 ? u2 - u1 : u1 - u2;
+      } 
+      
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span> ((digVal &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>) &amp;&amp; (t &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">400000</span></span></span>L));
+
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);  
+      val = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(OUT_PIN);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">HIGH</span></span></span>);
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> dischargeTime = (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span>)(t / <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000</span></span></span>L) * <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">5</span></span></span>;
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(dischargeTime);   
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);  
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);
+
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> capacitance = -(<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)t / R_PULLUP / log(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1.0</span></span></span> - (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)val / (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)MAX_ADC_VALUE);
+
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"Scale:   1pF-1nF"</span></span></span>);
+      
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span> (capacitance &gt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000.0</span></span></span>)
+      {
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(capacitance / <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000.0</span></span></span>, <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"uF "</span></span></span>);
+        
+      }
+        
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">else</span></span></span>
+      {
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(capacitance);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"nF"</span></span></span>);
+        
+      }
+  }
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span> (<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>() % <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000</span></span></span> != <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+}
+
+
+ </code></pre>
+
+
+</div>
+<div class="clearfloat">
+</div>
+<div class="tut_cod_bot">
+</div>
+<h1><br>
+  <br>
+  <br> 
+  </h1><h1>All in one capacitance meter</h1>
+  
+  <p>
+  What we will do now is combine the two schematics above in just one. 
+We will have to switch between scales and for that wt will use a rotary 
+switch conected to 5 volts and tow f the switch pins to digitals pins 
+D13 and D8 as we can see in the schematic below. We use this pins 
+because in the future I whant to combine this capacitance meter with the
+ <a href="http://www.electronoobs.com/eng_arduino_tut10.php">resistance meter</a> that we've created before. <br>
+    <img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/Cap_all_range.png" width="100%" height="100%"><br><br>
+    
+    So for the high values range we will use pins A1 (violet) and 
+A6(violet) to charge and discharge the capacitor and analog pin 
+A0(orange) to measure the voltage. For the low values we will use 
+A1(violet) and A0(orange) to charge and discharge the small capacitor. 
+In the code when we switch the scale we will have to define as inputs 
+the pins that we won't use in order to give them infinit impedance to be
+ sure that no curent will flow through those pins. 
+  
+  </p>
+  
+  
+  
+  
+  <br>
+  <br>
+  <br>
+  
+   <link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/arduino-light.css">
+<link rel="stylesheet" href="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/default.css">
+<script src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<div class="tut_cod">
+<div class="tut_cod_top">
+</div>
+
+<div class="arduino_code">
+<pre><code class="arduino hljs">
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">/*Thanks. Remember to visit my Youtube channel
+  I've used a i2c LCD screen module. 
+*/</span></span></span>
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//LCD config</span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">include</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> </span></span><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string">&lt;Wire.h&gt;</span></span></span></span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">include</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> </span></span><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string"><span class="hljs-meta"><span class="hljs-meta-string">&lt;LiquidCrystal_I2C.h&gt;</span></span></span></span></span></span>
+LiquidCrystal_I2C lcd(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0x3f</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">20</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">4</span></span></span>);  <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//sometimes the adress is not 0x3f. Change to 0x27 if it dosn't work.</span></span></span>
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> ScalepF=<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">8</span></span></span>;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> ScalenF=<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">13</span></span></span>;
+
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//High values//</span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> analogPin      A0          </span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> chargePin      5         </span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> dischargePin   6       </span></span></span>
+<span class="hljs-meta"><span class="hljs-meta"><span class="hljs-meta">#</span></span><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword"><span class="hljs-meta"><span class="hljs-meta-keyword">define</span></span></span></span></span><span class="hljs-meta"><span class="hljs-meta"> resistorValue  10000.0F  </span></span><span class="hljs-comment"><span class="hljs-meta"><span class="hljs-comment"><span class="hljs-meta"><span class="hljs-comment">//Remember, we've used a 10K resistor to charge the capacitor</span></span></span></span></span></span>
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> startTime;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> elapsedTime;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> microFarads;                
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> nanoFarads;
+
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//Low values//</span></span></span>
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> OUT_PIN = A2;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> IN_PIN = A0;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> IN_STRAY_CAP_TO_GND = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50.28</span></span></span>; <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//We have to change te resistance in this configuration. The 10K and 220 resistors </span></span></span>
+                                         <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//are changeing the values</span></span></span>
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> IN_CAP_TO_GND  = IN_STRAY_CAP_TO_GND;
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> R_PULLUP = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">30.0</span></span></span>;  
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> MAX_ADC_VALUE = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1023</span></span></span>;
+
+
+
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">void</span></span></span> <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setup</span></span></span>() {
+  
+  lcd.init();
+  lcd.backlight();
+
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(ScalepF,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(ScalenF,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);
+
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);     
+   
+
+}
+
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">void</span></span></span> <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">loop</span></span></span>() {
+
+
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//////////////////////////nF/////////////////////////////////////////</span></span></span>
+
+<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span>(<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalRead</span></span></span>(ScalenF))
+{
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>); <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//to make it GND</span></span></span>
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(analogPin,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>); <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//This pin will read the voltage</span></span></span>
+  
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">HIGH</span></span></span>);  
+  startTime = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>();
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span>(<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(analogPin) &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">648</span></span></span>){       
+  }
+
+  elapsedTime= <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>() - startTime;
+  microFarads = ((<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)elapsedTime / resistorValue) ;
+
+     
+  
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span> (microFarads &gt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>){
+
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"SCALE:  100nF-4F"</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);  
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(microFarads);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);        
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"uF"</span></span></span>);   
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">500</span></span></span>);    
+  }
+
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">else</span></span></span>{
+    nanoFarads = microFarads * <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000.0</span></span></span>; 
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"SCALE:  100nF-4F"</span></span></span>);
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);       
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(nanoFarads);  
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);       
+    lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"nF"</span></span></span>);          
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">500</span></span></span>); 
+  }
+
+  
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(chargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);            
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(dischargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);            
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(dischargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);     <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//discharging the capacitor     </span></span></span>
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span>(<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(analogPin) &gt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>){         
+  }<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//This while waits till the capaccitor is discharged</span></span></span>
+
+  <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(dischargePin, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);      <span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//this sets the pin to high impedance</span></span></span>
+  
+  lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+  lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"DISCHARGING....."</span></span></span>);
+  lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);  
+  
+}
+
+<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//////////////////////////pF/////////////////////////////////////////</span></span></span>
+
+<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span>(<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalRead</span></span></span>(ScalepF))
+{
+    
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(chargePin,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(dischargePin,<span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);<span class="hljs-comment"><span class="hljs-comment"><span class="hljs-comment">//We give high impedance to the two pins. We don't use this pins</span></span></span>
+
+
+  
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">HIGH</span></span></span>);
+    <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> val = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(IN_PIN);
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);
+
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span> (val &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">976</span></span></span>)
+    {
+      
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> capacitance = (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)val * IN_CAP_TO_GND / (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)(MAX_ADC_VALUE - val);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"Scale:   1pF-1nF"</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(capacitance,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">3</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"pF"</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">200</span></span></span>);
+    }
+    
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">else</span></span></span>
+    {
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT_PULLUP</span></span></span>);
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> u1 = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>();
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> t;
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> digVal;
+
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">do</span></span></span>
+      {
+        digVal = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalRead</span></span></span>(OUT_PIN);
+        <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">unsigned</span></span></span> <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">long</span></span></span> u2 = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>();
+        t = u2 &gt; u1 ? u2 - u1 : u1 - u2;
+      } 
+      
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span> ((digVal &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>) &amp;&amp; (t &lt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">400000</span></span></span>L));
+
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">INPUT</span></span></span>);  
+      val = <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">analogRead</span></span></span>(OUT_PIN);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">HIGH</span></span></span>);
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span> dischargeTime = (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">int</span></span></span>)(t / <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000</span></span></span>L) * <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">5</span></span></span>;
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(dischargeTime);   
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">OUTPUT</span></span></span>);  
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(OUT_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span></span>(IN_PIN, <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">LOW</span></span></span>);
+
+      <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span> capacitance = -(<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)t / R_PULLUP / log(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1.0</span></span></span> - (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)val / (<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">float</span></span></span>)MAX_ADC_VALUE);
+
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+      lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"Scale:   1pF-1nF"</span></span></span>);
+      
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">if</span></span></span> (capacitance &gt; <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000.0</span></span></span>)
+      {
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"Scale:   1pF-1nF"</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(capacitance / <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000.0</span></span></span>, <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">3</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"uF "</span></span></span>);
+        <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">200</span></span></span>);
+        
+      }
+        
+      <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">else</span></span></span>
+      {
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">clear</span></span></span>();
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"Scale:   1pF-1nF"</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(capacitance,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">3</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">setCursor</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">14</span></span></span>,<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>);
+        lcd.<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">print</span></span></span>(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"nF"</span></span></span>);
+        <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">delay</span></span></span>(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">200</span></span></span>);
+        
+      }
+  }
+    <span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">while</span></span></span> (<span class="hljs-built_in"><span class="hljs-built_in"><span class="hljs-built_in">micros</span></span></span>() % <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1000</span></span></span> != <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">0</span></span></span>);
+}
+}
+ </code></pre>
+
+
+</div>
+<div class="clearfloat">
+</div>
+<div class="tut_cod_bot">
+</div>
+<br>  
+  
+  
+  
+<br>
+	<a href="http://www.electronoobs.com/eng_arduino_tut10.php"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/back.png" width="180" height="40"></a>
+    <a href="http://www.electronoobs.com/eng_arduino_tut10.php"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/intro.png" width="180" height="40"></a>
+  <a href="http://www.electronoobs.com/eng_arduino_tut10_2.php"><img src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/next.png" width="180" height="40"></a>
+  <br><br><br>
+
+
+
+
+
+
+    
+  <!-- InstanceEndEditable -->
+  <!-- end .content --></div>
+  <div class="footer"><!-- InstanceBeginEditable name="pie" -->
+    ELECTRONOOBS<br>
+2019     
+  <!-- InstanceEndEditable -->
+  <!-- end .footer --></div>
+  <!-- end .container --></div>
+   
+
+
+
+</div></div></div><iframe name="oauth2relay305146370" id="oauth2relay305146370" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -10000px; top: -10000px;"><table dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container" cellspacing="0" cellpadding="0"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" id="I0_1560114877317" name="I0_1560114877317" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/subscribe_embed_002.htm" width="100%" frameborder="0"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/border_3.gif"></td><td class="gc-reset"><table style="width:100%" class="gc-reset" cellspacing="0" cellpadding="0"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="How%20to%20make%20a%20capacitance%20meter%20using%20arduino_files/spacer.gif"></td></tr></tbody></table></div></body><!-- InstanceEnd --></html>
+<!-- InstanceEndEditable -->
+<!-- end .header -->

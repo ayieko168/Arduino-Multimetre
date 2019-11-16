@@ -1,0 +1,1330 @@
+@charset "utf-8";
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+.container {
+	width: 100%;
+	max-width: 1260px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+	min-width: 580px;/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+	background-color: ;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+	
+}
+
+
+
+
+
+
+.centrar_insta_vid
+{
+
+	float:left;
+	width:100%;
+	padding:30%;	
+}
+
+.Vid_index_0
+{
+	float: left;
+	width: 99%;
+	height: auto;
+	padding-right: 2%;
+	padding-left: 2%;
+	padding-bottom: 20px;
+}
+
+
+.Vid_index_1
+{
+	float: left;
+	width: 45%;
+	height: auto;
+	border: 1px dotted #FC9;	
+	margin-right: 2%;
+	margin-left: 2%;
+	margin-bottom: 20px;
+}
+.Vid_index_2
+{
+	margin-top:10px;
+	margin-left:10px;
+	float: left;
+	width: 90%;
+	height: 30px;
+	color: #09F;
+	text-align: left;
+	font-family: "Comic Sans MS", cursive;
+}
+.Vid_index_3
+{
+	float: left;
+	width: 100%;
+	height: 160px;
+	font-size: 13px;
+	color: #F96;
+	text-align: justify;	
+}
+
+.aestudiar_dos
+{
+	width:900px;
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	width:100%;
+	height: 220px;
+	
+}
+
+.capa_adsense
+{
+	width:98%;
+	margin:10px;
+	height:auto;
+	
+}
+
+.capa_adsense_horizontal
+{
+	width:98%;
+	padding: auto;
+	height: 100px;
+	height:auto;
+	
+}
+
+.capa_adsense_lateral
+{
+	width:96%;
+	padding: auto;
+	margin :10px;
+	
+}
+
+.sidebar1 {
+	float: right;
+	padding: 0px;
+	width: 19.8%;
+	margin-top: 10px;
+	/*background-image: url(../images/green_square_less.png);*/
+	padding-bottom: 10px;
+	
+}
+
+.search_3
+{
+	background-color:#CCC;	
+}
+
+
+
+
+.content {
+	padding:;
+	width: 80%;
+	float: left;
+	border-right-width: 1px;
+	border-right-style: inset;
+	border-right-color: #666;
+	
+}
+.content_sli {
+	padding:;
+	width: 80%;
+	float: right;
+	
+	
+}
+.content_full {
+	padding:;
+	width: 100%;
+	float: right;
+}
+.footer {
+	padding: 10px 0;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+	text-align: center;
+	color: #FFF;
+	background-color: #666;
+}
+
+.menu_cnc_machines
+{
+	width: 98%;
+	height: 300px;
+	float: left;
+	border: 1px solid #F60;
+	margin-bottom:20px;
+}
+
+
+
+
+
+.d_obj
+{
+	width: 99%;
+	height: auto;
+	float:left;
+	border: 1px solid #CCC;
+	margin-bottom:15px;
+	}
+	
+.d_obj2
+{
+	width: 55%;
+	height: auto;
+	float: left;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCC;
+	
+			
+	}
+
+
+.side_new
+{
+	
+	width:94%;
+	float:left;
+	height:270px;
+	background-color:#FFF;
+	padding-left:3.5%;
+	padding-top:3.5%;
+	}
+	
+.side_new2
+{
+	width: 31%;
+	float: left;
+	height: 31%;
+	background-color: #FFF;
+	margin: 0;
+	border: 1px solid #F60;
+	}
+
+.in_block_text
+{
+	float:left;
+	width:100%;
+	height:auto;
+	
+	}
+.in_block_text2
+{
+	float:left;
+	width:auto;
+	height:auto;
+	margin-right:10px;
+	
+	}
+
+
+
+.multimeter_top_menu
+{
+	width:100%;
+	height:200px;
+	float:left;
+}
+.multimeter_top_menu2
+{
+	width:20%;
+	height:200px;
+	float:left;
+	
+	margin-left:4%;
+}
+
+
+
+.soft3D
+{
+	width: 100%;
+	float: left;
+	height: 180px;
+	margin-bottom: 10px;
+	border: 1px solid #CCC;
+	}
+	
+.soft3D_img
+{
+	
+	width:25%;
+	float:left;
+	height:180px;
+	
+	margin-right:4%;
+	
+	}
+	
+.soft3D_text
+{
+	width: 68%;
+	float: left;
+	height: 170px;
+	padding: 5px;
+	text-align: justify;
+    text-justify: inter-word;	
+	}
+
+
+
+
+.arduino_code
+{
+	width: 100%;
+	height: 100%;
+	float: left;
+	text-align: left;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: dashed;
+	border-left-style: dashed;
+	border-right-color: #999;
+	border-left-color: #999;
+}
+
+.tabla_sensores
+{
+	text-align: center;
+	
+	}
+	
+.busqueda
+{
+	left: 700px;
+	float:right;
+	
+	
+	
+	position: fixed;
+	margin-left: 10px;
+	float: left;
+	z-index: 300;
+	left: 10px;
+	bottom:30px;	
+}
+
+.banderas{
+	width: 40px;
+	height: 100px;
+	position: fixed;
+	margin-right: 20px;
+	float: right;
+	z-index: 300;
+	right: 10px;
+	}
+	
+.banderas2{
+	width: 40px;
+	height: 30px;
+	margin-top:5px;
+	
+	}
+.tut_parts{
+	width: 100%;
+	float: left;
+	margin-top: 15px;
+		
+	}
+.tut_parts1{
+	
+	width:33%;
+	float:left;
+	
+
+	}
+.qanda
+{
+	width: 480px;
+	height: 35px;
+	position: fixed;
+	
+	float: left;
+	z-index: 400;
+	left: -1px;
+	
+}
+.qanda2
+{
+	padding-top:3px;
+	width: 100px;
+	height: 32px;
+	float: right;
+	z-index: 450;
+	font-size: 10px;	
+	
+	
+}
+
+.new_q_a
+{
+	width: 96%;
+	height: 160px;
+	float: left;
+	border: 1px solid #F90;
+	margin: 10px;	
+}
+
+
+	
+.youtubee
+{
+	width: 200px;
+	height: 60px;
+	position: fixed;
+	margin-bottom: 10px;
+	float: right;
+	z-index: 300;
+	right: 10px;
+	bottom: 10px;
+	background-size:contain
+	}	
+
+video#bgvid {
+	position: absolute;
+	top: 145px;
+	left: 50%;
+	
+	width: 99.5%;
+	height: auto;
+	z-index: -100;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	
+}
+
+.barra_fixa
+
+{
+	padding-top: 1%;
+	float: right;
+	margin-top: 10%;
+	height: 170px;
+	width: 60px;
+	position: fixed;
+	z-index: 100;
+	text-align: center;
+	
+	right: 1.5%;
+	bottom:30%;
+}
+.barra_fixa1{
+	
+	width:90%;
+	height:30%;
+	float:left;
+	}
+.menu{
+	width:100%;
+	padding-top:200px;
+	
+	height:auto;}
+.menu_1{
+	float:left;
+	height:100px;
+	width:24%;
+	
+	margin-left:1%;}
+.menu_bloque1{
+	width: 100%;
+	height: 218px;
+	
+}
+.menu_bloque2{
+	float:left;
+	width: 100%;
+	height: 100%;
+	margin-left: 2%;
+	}
+
+.slider1{
+	width: 100%;
+	height: ;
+	
+	float: left;
+	border: 1px solid #666;
+	}
+	
+
+	
+.lo_nuevo{
+	width: 93%;
+	height: 100%;
+	float: left;
+	margin: 3%;
+	border: 1px outset #333;
+}
+.nuevo
+{
+	float:left;
+	width:98%;
+	margin-bottom:30px;
+	}
+.nuevo_top
+{
+	width: 100%;
+	height: 25px;
+	float: left;
+	margin-top: 40px;
+	padding-top: 10px;
+	background-color: #;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.nuevo2
+{
+	width:100%;
+	float:left;
+	background-color:#;
+	height:230px;
+	}
+	
+.nuevo3{
+	width: 30%;
+	margin-left: 2.5%;
+	margin-top: 1.5%;
+	float: left;
+	background-color:#;
+	height: 200px;
+	border: 1px groove #F60;	
+	}
+.tutoriales{
+	float: left;
+	width: 95%;
+	height: auto;
+	background-color: #CCC;
+	margin-bottom: 20px;
+	}
+.tutoriales1{
+	margin-bottom: 0%;
+	padding-top: 0.5%;
+	padding-left: 2%;
+	padding-bottom: 0.5%;
+	float: left;
+	width: 98%;
+	height: 6.4%;
+	text-align: left;
+	vertical-align: middle;
+	background-color: #666;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	border-top-width: 0px;
+	border-top-style: solid;
+	border-top-color: #999;
+	text-decoration: blink;
+	}
+.tutoriales2{
+	
+	width: 65%;
+	height: 100%;
+	float: left;
+	border: 1px solid #666;
+	vertical-align: middle;
+	
+	}
+	
+.tutoriales3{
+	margin-left: 2.5%;
+	margin-top:2%;
+	padding-top: 2%;
+	padding-left:1.5%;
+	padding-right:1.5%;
+	
+	width: 28%;
+	height: auto;
+	float: left;
+	background-image: url(../images/tutoriales3.png);*/
+	background-size: 100%;
+	background-repeat: no-repeat;
+	text-transform: uppercase;
+	color: #960;
+	font-weight: bold;
+	font-size: smaller;
+	}
+	
+.tutoriales4{
+	padding-top: 8px;
+	padding-bottom:1.5%;
+	margin-top: 8px;
+	width: 100%;
+	height: auto;
+	background-color: #666;
+	float: left;
+	color: #FFF;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #666;
+	font-size: 14px;
+	}
+	
+.que_necesitamos{
+	
+	width:100%;
+	padding:5px;
+	color:#000;
+	
+	}
+	
+.tut_cod
+{
+	
+	width:100%;
+	
+	}
+	
+.tut_cod_top
+{
+	height: 120px;
+	width: 100%;
+	background-image: url(../images/Arduino/Cod_top.png);
+	background-size: 100%;
+	
+	background-repeat: no-repeat;
+	}
+	
+.tut_cod_bot
+{
+	height: 120px;
+	width: 100%;
+	background-image: url(../images/Arduino/Cod_bot.png);
+	background-size: 100%;
+	
+	background-repeat: no-repeat;
+	}
+
+.bloque_robotica_ini{
+	float: left;
+	width: 95%;
+	height: 220px;
+	border: 1px solid #CCC;
+	margin-bottom:15px;	
+	}
+	
+.video_yt{
+	
+	flaot:left;
+	width:100%;
+	height:400px;
+	}
+	
+.asig_1
+{
+	float:left,
+	width:100%;
+	padding:1%;
+	height:1000px;
+}
+
+.asig_2
+{
+	float:left,
+	width:100%;
+	height:300px;
+	padding-left:1%;
+	margin-bottom:40px;
+}
+
+.asig_3
+{
+	float:left;
+	width:20%;
+	height:292px;
+	margin-right:4%;
+	
+	
+}
+.asig_4
+{
+	float:left;
+	width:100%;
+	height:252px;
+	
+	
+}
+
+.asig_5
+{
+	float:left;
+	width:100%;
+	height:40px;
+	
+	
+}
+
+	
+.bloque_asignaturas{
+	float: left;
+	width: 100%;
+	height: auto;
+	background-color: #FFF;
+	text-transform: uppercase;
+	font-family: "Lucida Console", Monaco, monospace;
+	text-decoration: none;
+	color: #FFF;
+}
+	
+.bloque_asignaturas2{
+	
+	float:left;
+	width:100%;
+	height:300px;
+	background-color:#FFF;
+	margin-left:2.5%;}
+	
+.bloque_asignaturas3{
+	float: left;
+	width: 30%;
+	height: 100%;
+	background-color: #FC0;
+	margin-top: 3%;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 30%;
+}
+	
+.bloque_asignaturas4{
+	
+	float:left;
+	width:100%;
+	height:80px;
+	background-color:#C6F;
+	margin-top:3%;
+	padding-top: 20%;}
+	
+.bloque_asignaturas5{
+	
+	float:left;
+	width:100%;
+	height:90px;
+	background-color:#3C6;
+	margin-top:3%;
+	padding-top: 20%}
+	
+.bloque_asignaturas6{
+	
+	float:left;
+	width:100%;
+	height:80px;
+	background-color:#39C;
+	margin-top:3%;
+	padding-top: 20%;
+	}
+	
+.bloque_asignaturas7{
+	
+	float:left;
+	width:100%;
+	height:110px;
+	background-color:#F60;
+	margin-top:3%;
+	padding-top: 30%}
+	
+.bloque_asignaturas8{
+	
+	float:left;
+	width:100%;
+	height:90px;
+	background-color:#C30;
+	margin-top:3%;
+	padding-top: 20%}
+	
+.pdfs{
+	float: left;
+	width: 95%;
+	height: 100%;
+	border: 1px solid #999;
+	margin-top: 35px;
+	color: #C60;
+	}
+
+.bloque_modulos1
+{
+	width:100%;
+	float:left;
+	background-color:#fff;
+	}
+	
+.bloque_modulos2
+{
+	width:95%;
+	float:left;
+	height:300px;
+	background-color:#;
+	margin-bottom:10px;
+	border: 1px solid #999;
+	}
+	
+.bloque_modulos3
+{
+	width: 40%;
+	float: left;
+	height: 280px;
+	background-color: #FFF;
+	margin: 8px;
+	border: 1px solid #999;
+	}
+	
+.bloque_modulos4
+{
+	width: 52%;
+	float: left;
+	height: 60%;
+	background-color: #;
+	margin: 8px;
+	padding-top: 3%;
+	font-size: 12px;
+	text-align: left;
+	}		
+	
+	
+.shields
+{
+	float: left;
+	width: 98%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-color: #999;
+	margin-bottom: 15px;	
+}
+
+.shields_2
+{
+	float:left;
+	width:25%;
+	height:150px;
+	
+	
+}
+.shields_3
+{
+	float:left;
+	width:72%;
+	height:50px;
+	
+	padding:10px;
+	
+}
+
+.shields_4
+{
+	float: left;
+	width: 72%;
+	height: 300px;
+	padding: 10px;
+	text-align: left;	
+}
+
+
+.tut_impresoras
+{
+	float: left;
+	width: 98%;
+	text-align: left;
+	border: 1px solid #F90;
+	margin-bottom:20px;
+}
+
+.comerc_impresoras
+{
+	float: left;
+	width: 98%;
+	text-transform: uppercase;
+	color: #F90;
+	padding:12px;
+	letter-spacing: 0.6em;	
+}
+
+.comerc_impresoras2
+{
+float:left;
+width:20%;
+text-align:center;	
+}
+
+.comerc_impresoras3
+{
+float:left;
+width:70%;
+text-align:left;
+margin-bottom:20px;	
+}
+	
+	
+	
+	
+	
+	
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+	text-align: justify;
+}
+
+sh_tit
+{
+	font-size: 1em;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #F90;
+	letter-spacing: 23px;
+	margin: 0px;
+    text-align: center;
+	padding: 0px;
+}
+
+
+yellow
+{
+	color:#CF0;
+	}
+green{
+	color:#360;
+	}
+blue{
+	color:#00C;
+	}
+violet{
+	color:#639;
+	}
+red{color:#F00;}
+
+marron{color:#B05800;}
+
+orange{
+	color:#F93;
+	}
+lightblue{
+color:#39C;
+}
+blue_a{
+	color:#17a1a5;
+	}	
+blue{
+	color:#00C;
+	}
+	
+green_a{
+	color:#66CC66;
+	}	
+
+tex1{
+	
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #000;	
+	}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #FF6600;
+	text-decoration: none;	/* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #FF9966;
+
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	
+}
+
+/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the left instead of the right, simply float these columns the opposite direction (all left instead of all right) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+*/
+
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	text-decoration: none;
+	background-image: url(../images/green_square_less.png);
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	background-image: url(../images/green_square_less.png);
+	color: #FFF;
+}
+
+/* ~~ The footer ~~ */
+
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes 
+badbounce {  0%, 100% {
+ -webkit-transform: translateY(0px);
+}
+ 10% {
+ -webkit-transform: translateY(6px);
+}
+ 30% {
+ -webkit-transform: translateY(-4px);
+}
+ 70% {
+ -webkit-transform: translateY(3px);
+}
+ 90% {
+ -webkit-transform: translateY(-2px);
+}
+}
+@-moz-keyframes 
+badbounce {  0%, 100% {
+ -moz-transform: translateY(0px);
+}
+ 10% {
+ -moz-transform: translateY(6px);
+}
+ 30% {
+ -moz-transform: translateY(-4px);
+}
+ 70% {
+ -moz-transform: translateY(3px);
+}
+ 90% {
+ -moz-transform: translateY(-2px);
+}
+}
+@keyframes 
+badbounce {  0%, 100% {
+ -webkit-transform: translateY(0px);
+ -moz-transform: translateY(0px);
+ -ms-transform: translateY(0px);
+ -o-transform: translateY(0px);
+ transform: translateY(0px);
+}
+ 10% {
+ -webkit-transform: translateY(6px);
+ -moz-transform: translateY(6px);
+ -ms-transform: translateY(6px);
+ -o-transform: translateY(6px);
+ transform: translateY(6px);
+}
+ 30% {
+ -webkit-transform: translateY(-4px);
+ -moz-transform: translateY(-4px);
+ -ms-transform: translateY(-4px);
+ -o-transform: translateY(-4px);
+ transform: translateY(-4px);
+}
+ 70% {
+ -webkit-transform: translateY(3px);
+ -moz-transform: translateY(3px);
+ -ms-transform: translateY(3px);
+ -o-transform: translateY(3px);
+ transform: translateY(3px);
+}
+ 90% {
+ -webkit-transform: translateY(-2px);
+ -moz-transform: translateY(-2px);
+ -ms-transform: translateY(-2px);
+ -o-transform: translateY(-2px);
+ transform: translateY(-2px);
+}
+}
+
+.ss_animate {
+  -webkit-animation: badbounce 1s linear;
+  -moz-animation: badbounce 1s linear;
+  animation: badbounce 1s linear;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background: ;
+  margin: 0;
+  padding: 0;
+}
+
+#ss_menu {
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+  right: 30px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#ss_menu > .menu {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  color: #fff;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#ss_menu > .menu .share {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#ss_menu > .menu .share .circle {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  top: 50%;
+  margin-top: -6px;
+  left: 12px;
+  opacity: 1;
+}
+
+#ss_menu > .menu .share .circle:after, #ss_menu > .menu .share .circle:before {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+  content: '';
+  opacity: 1;
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+#ss_menu > .menu .share .circle:after {
+  left: 20.78461px;
+  top: 12.0px;
+}
+
+#ss_menu > .menu .share .circle:before {
+  left: 20.78461px;
+  top: -12.0px;
+}
+
+#ss_menu > .menu .share .bar {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  margin-top: -1.5px;
+  left: 18px;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+#ss_menu > .menu .share .bar:before {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+  content: '';
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  left: 0px;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+#ss_menu > .menu .share.close .circle { opacity: 0; }
+
+#ss_menu > .menu .share.close .bar {
+  top: 50%;
+  margin-top: -1.5px;
+  left: 50%;
+  margin-left: -12px;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: rotate(405deg);
+  -moz-transform: rotate(405deg);
+  -ms-transform: rotate(405deg);
+  -o-transform: rotate(405deg);
+  transform: rotate(405deg);
+}
+
+#ss_menu > .menu .share.close .bar:before {
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: rotate(-450deg);
+  -moz-transform: rotate(-450deg);
+  -ms-transform: rotate(-450deg);
+  -o-transform: rotate(-450deg);
+  transform: rotate(-450deg);
+}
+
+#ss_menu > .menu.ss_active {
+  background: #F90;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+#ss_menu > div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
+  background: #FF9900;
+  border-radius: 50%;
+  display: table;
+}
+
+#ss_menu > div i {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#ss_menu > div:hover {
+  background: #FC0;
+  cursor: pointer;
+}
+
+#ss_menu div:nth-child(1) {
+  top: 0px;
+  left: -160px;
+}
+
+#ss_menu div:nth-child(2) {
+  top: -80.0px;
+  left: -138.56406px;
+}
+
+#ss_menu div:nth-child(3) {
+  top: -138.56406px;
+  left: -80.0px;
+}
+
+#ss_menu div:nth-child(4) {
+  top: -160px;
+  left: 0.0px;
+}
